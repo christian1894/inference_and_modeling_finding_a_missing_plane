@@ -81,9 +81,17 @@ p_find_first_day
 
 # What is the probability that the plane is not found on
 # the first day but is found on the second day?
+#(Plane found in A∣ Plane not found in area B)
 
+# use maximum posterior probability from previous question: region A
+pr_A_post <- p_plane_in_a * p_not_find_plane_in_different_area / p_not_found_in_b
 
+# probability plane found on day 2
+p_found_in_a <- pr_A_post*(1-p_overlook_plane_in_area)
+p_found_in_a
+# probability plane not found on day 1 but found on day 2
+p_not_found_in_b * p_found_in_a
 
  # What is the probability that the plane is found within 2 days?
-
-
+p_found_within_two_days = p_find_second_day + p_find_first_day
+p_found_within_two_days
